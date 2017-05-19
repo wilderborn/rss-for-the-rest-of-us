@@ -47,6 +47,36 @@ header.page-header {
     margin-bottom: 40px;
 }
 
+.hero {
+    margin-top: 180px;
+    max-width: 440px;
+    margin: 0 auto;
+    height: calc(80vh - 144px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    h1 { 
+        font-size: 260px;
+        font-weight: 400;
+        line-height: 180px;
+    }
+    
+    h2 {
+        font-size: 54px;
+        border-bottom: 8px solid $black;
+        padding-bottom: 8px;
+        margin-bottom: 40px;
+    }
+    
+    p {
+        font-size: 21px;
+        line-height: 1.5;
+        text-align: left;
+    }
+}
+
 section.main {
     @include contain;
 }
@@ -55,7 +85,7 @@ section.main {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 56px;
+    grid-column-gap: 2rem;
     
     .item {
         margin-bottom: 56px;
@@ -72,7 +102,7 @@ section.main {
     height: 260px;
     max-width: 100%;
     transition: all .21s ease;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     position: relative;
     
     &:hover { background: $pink; }
@@ -101,9 +131,23 @@ section.main {
 
 .add-feed {
     background: $pink;
+    opacity: .8;
+    transition: none;
+    &:hover { opacity: 1; }
 }
 
 .feed-description {
     font-size: 18px;
     line-height: 1.4;
+    padding: 0 5px;
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 24px 40px;
+    text-align: center;
 }

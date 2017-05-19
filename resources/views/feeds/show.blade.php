@@ -1,17 +1,16 @@
 @extends('layouts.app')
-@section('title', $feed->title)
+@section('page-header', $feed->title)
+
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" v-pre>
-
-                <form action="{{ route('feeds.destroy', $feed) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button>Unsubscribe</button>
-                </form>
-
+    <form action="{{ route('feeds.destroy', $feed) }}" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <button>Unsubscribe</button>
+    </form>
+    
+    <div class="read">
+            <div class="content" v-pre>
                 <h2>{{ $feed->title }} <span class="badge">{{ $feed->count }}</span></h2>
                 <p>{{ $feed->description }}</p>
 
@@ -29,5 +28,4 @@
 
             </div>
         </div>
-    </div>
 @endsection

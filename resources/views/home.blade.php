@@ -1,17 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.custom')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    Oh hi
-                </div>
-            </div>
+    <div class="hero">
+        <div class="content">
+            <h1>RSS</h1>
+            <h2>For the Rest of Us</h2>
+            <p>RSS is not dead! There's a <a href="https://jsonfeed.org/version/1" target="_blank">new format</a> in town, replacing XML with JSON, making developers happy everywhere. RSS is more alive than ever.
         </div>
     </div>
-</div>
-@endsection
+@stop

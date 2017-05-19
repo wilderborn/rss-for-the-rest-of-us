@@ -17,14 +17,18 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Items</th>
+                                <th>URL</th>
                             </tr>
                             </thead>
                             @foreach ($feeds as $feed)
                                 <tr>
-                                    <td>{{ $feed->id }}</td>
-                                    <td><a href="{{ route('feeds.show', $feed) }}">{{ $feed->url }}</a></td>
+                                    <td><a href="{{ route('feeds.show', $feed) }}">{{ $feed->title }}</a></td>
+                                    <td>{{ $feed->description }}</td>
+                                    <td>{{ $feed->count }}</td>
+                                    <td>{{ $feed->url }}</td>
                                 </tr>
                             @endforeach
                         </table>

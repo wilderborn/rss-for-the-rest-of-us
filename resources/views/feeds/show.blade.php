@@ -14,6 +14,10 @@
                 <h2>{{ $feed->title }} <span class="badge">{{ $feed->count }}</span></h2>
                 <p>{{ $feed->description }}</p>
 
+                @if ($feed->icon)
+                    <img src="{{ $feed->icon }}" />
+                @endif
+
                 @foreach ($feed->items as $item)
                     <div class="panel panel-default">
                         <div class="panel-heading">

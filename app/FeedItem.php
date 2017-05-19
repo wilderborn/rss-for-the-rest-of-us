@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
+
 class FeedItem
 {
     private $data;
@@ -16,10 +18,17 @@ class FeedItem
         return array_get($this->data, 'title', $this->id);
     }
 
+    public function contentHtml()
+    {
+        return safe_html(
+            array_get($this->data, 'content_html')
+        );
+    }
+
     public function __get($key)
     {
-        if (method_exists($this, $key)) {
-            return $this->$key();
+        if (method_exists($this, $method = Str::camel($key))) {
+            return $this->$method();
         }
 
         return array_get($this->data, $key);

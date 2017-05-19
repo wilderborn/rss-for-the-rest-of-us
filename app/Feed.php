@@ -4,7 +4,7 @@ namespace App;
 
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
-use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Feed extends Model
 {
@@ -54,12 +54,12 @@ class Feed extends Model
 
     public function getFeedContents()
     {
-        return \Cache::remember("feeds.{$this->id}", 5, function () {
+        return \Cache::remember("feeds.{$this->url}", 5, function () {
             $client = new Client();
 
             try {
                 $response = $client->get($this->url);
-            } catch (ClientException $e) {
+            } catch (GuzzleException $e) {
                 return null;
             }
 

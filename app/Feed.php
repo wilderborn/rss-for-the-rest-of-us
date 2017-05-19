@@ -39,6 +39,8 @@ class Feed extends Model
             return array_get($item, 'id');
         })->map(function ($item) {
             return new FeedItem($item);
+        })->keyBy(function ($item) {
+            return $item->id;
         });
     }
 

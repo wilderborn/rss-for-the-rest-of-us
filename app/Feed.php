@@ -25,6 +25,11 @@ class Feed extends Model
         return array_get($this->getFeedContents(), 'description');
     }
 
+    public function getIconAttribute()
+    {
+        return array_get($this->getFeedContents(), 'icon');
+    }
+
     public function getCountAttribute()
     {
         return $this->items->count();

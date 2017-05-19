@@ -3,9 +3,9 @@
         {!! svg('us') !!}
         <span class="title">RSS</span>
     </a>
-    
+
     <ul class="links">
         <li><a href="{{ route('feeds.create') }}" class="active">Add Feed</a></li>
-        <li><a href="">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>

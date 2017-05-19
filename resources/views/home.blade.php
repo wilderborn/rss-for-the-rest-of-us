@@ -1,4 +1,5 @@
 @extends('layouts.custom')
+@section('title', 'Home')
 
 @section('content')
     <div class="hero">

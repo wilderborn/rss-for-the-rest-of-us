@@ -112,6 +112,11 @@ section.main {
         width: 100%;
     }
     
+    &.with-image {
+        opacity: 1;
+        &:hover { opacity: .8; }
+    }
+    
     .feed-count {
         position: absolute;
         height: 48px;
@@ -151,6 +156,7 @@ section.main {
     background: #fff;
     padding: 24px 40px;
     text-align: center;
+    font-size: 21px;
 }
 
 .button {

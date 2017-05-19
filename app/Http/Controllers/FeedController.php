@@ -42,7 +42,16 @@ class FeedController extends Controller
             'url' => 'required|url'
         ]);
 
-        $feed = $request->user()->feeds()->create($data);
+        $feed = new Feed($data);
+
+        if ($feed->isInvalid()) {
+            return back()
+                ->withInput()
+                ->withErrors(['url' => "This doesn't appear to be a JSON feed."]);
+        }
+
+        $feed->user_id = $request->user()->id;
+        $feed->save();
 
         return redirect()->route('feeds.show', $feed);
     }

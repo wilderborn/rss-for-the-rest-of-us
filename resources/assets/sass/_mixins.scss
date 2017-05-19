@@ -1,0 +1,8 @@
+@mixin contain() {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+@mixin smooth() {
+    -webkit-font-smoothing: antialiased;
+}

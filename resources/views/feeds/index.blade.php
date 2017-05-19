@@ -1,42 +1,25 @@
 @extends('layouts.app')
 
+@section('title', "Your Feeds")
+
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <p>
-                    <a href="{{ route('feeds.create') }}" class="btn btn-primary">Create Feed</a>
-                </p>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">Feeds</div>
-
-                    <div class="panel-body">
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Items</th>
-                                <th>URL</th>
-                            </tr>
-                            </thead>
-                            @foreach ($feeds as $feed)
-                                <tr>
-                                    <td><a href="{{ route('feeds.show', $feed) }}">{{ $feed->title }}</a></td>
-                                    <td>{{ $feed->description }}</td>
-                                    <td>{{ $feed->count }}</td>
-                                    <td>{{ $feed->url }}</td>
-                                </tr>
-                            @endforeach
-                        </table>
-
-                    </div>
-                </div>
-
-            </div>
+    <div class="grid">
+        <div class="item">
+            <a class="feed-cover add-feed" href="{{ route('feeds.create') }}">
+                <h2 class="feed-title">Add Feed</h2>
+            </a>
         </div>
+        @foreach ($feeds as $feed)
+            <div class="item">
+                <a href="{{ route('feeds.show', $feed) }}" class="feed-cover">
+                    <h2 class="feed-title">{{ $feed->title }}</h2>
+                    <div class="feed-count"><span>{{ $feed->count }}</span></div>
+                </a>
+                <div class="feed-description">
+                    {{ $feed->description }}
+                    {{-- {{ $feed->url }} --}}
+                </div>
+            </div>
+        @endforeach
     </div>
 @endsection

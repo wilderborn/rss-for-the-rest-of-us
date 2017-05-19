@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $feed->title)
 
 @section('content')
     <div class="container">

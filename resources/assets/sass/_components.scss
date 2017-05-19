@@ -1,0 +1,109 @@
+.nav-main {
+    @include contain;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .brand {
+        display: flex;
+        font-size: 21px;
+        font-weight: bold;
+        font-style: italic;
+        color: $pink;
+        align-items: center;
+        svg { margin-right: 8px; }
+    }
+    
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+    }
+    
+    li { margin-left: 32px; }
+    
+    li a {
+        @include smooth;
+        color: $black;
+        font-size: 21px;
+        font-weight: bold;
+        padding: 5px 0;
+        &:hover {
+            color: $pink;
+        }
+        &.active {
+            border-bottom: 5px solid $pink;
+        }
+    }
+}
+
+header.page-header {
+    @include contain;
+    border-bottom: 8px solid $black;
+    margin-bottom: 40px;
+}
+
+section.main {
+    @include contain;
+}
+
+.grid {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 56px;
+    
+    .item {
+        margin-bottom: 56px;
+    }
+}
+
+.feed-cover {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    color: #fff;
+    background: $black;
+    height: 260px;
+    max-width: 100%;
+    transition: all .21s ease;
+    margin-bottom: 24px;
+    position: relative;
+    
+    &:hover { background: $pink; }
+    
+    .feed-title {
+        width: 100%;
+    }
+    
+    .feed-count {
+        position: absolute;
+        height: 48px;
+        width: 48px;
+        background: $blue;
+        color: #fff;
+        top: -24px;
+        right: -24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        span {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+.add-feed {
+    background: $pink;
+}
+
+.feed-description {
+    font-size: 18px;
+    line-height: 1.4;
+}

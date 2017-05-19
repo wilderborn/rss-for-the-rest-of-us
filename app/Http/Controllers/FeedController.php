@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Feed;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class FeedController extends Controller
 {
@@ -38,8 +39,16 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
+        $userId = $request->user()->id;
+
         $data = $this->validate($request, [
-            'url' => 'required|url'
+            'url' => [
+                'required',
+                'url',
+                Rule::unique('feeds')->where('user_id', $userId)
+            ]
+        ], [
+            'url.unique' => "You've already added this feed."
         ]);
 
         $feed = new Feed($data);
@@ -50,7 +59,7 @@ class FeedController extends Controller
                 ->withErrors(['url' => "This doesn't appear to be a JSON feed."]);
         }
 
-        $feed->user_id = $request->user()->id;
+        $feed->user_id = $userId;
         $feed->save();
 
         return redirect()->route('feeds.show', $feed);

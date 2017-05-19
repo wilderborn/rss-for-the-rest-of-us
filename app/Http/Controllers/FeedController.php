@@ -106,11 +106,13 @@ class FeedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Feed $feed
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Feed $feed)
     {
-        //
+        $request->user()->feeds()->detach($feed);
+
+        return redirect()->route('feeds.index');
     }
 }

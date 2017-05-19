@@ -6,6 +6,12 @@
         <div class="row">
             <div class="col-md-12" v-pre>
 
+                <form action="{{ route('feeds.destroy', $feed) }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button>Unsubscribe</button>
+                </form>
+
                 <h2>{{ $feed->title }} <span class="badge">{{ $feed->count }}</span></h2>
                 <p>{{ $feed->description }}</p>
 

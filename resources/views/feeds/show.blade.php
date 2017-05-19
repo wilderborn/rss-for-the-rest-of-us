@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" v-pre>
 
                 <h2>{{ $feed->title }} <span class="badge">{{ $feed->count }}</span></h2>
                 <p>{{ $feed->description }}</p>

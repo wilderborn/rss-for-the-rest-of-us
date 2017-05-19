@@ -7,14 +7,15 @@
         <div class="form-group {{ $errors->has('url') ? ' has-error' : '' }}">
             <label>URL</label>
 
-                <input type="text" name="url" value="{{ old('url', request('url')) }}" class="form-control" required />
+            <input type="text" name="url" value="{{ old('url', request('url')) }}" autofocus required />
 
-                @if ($errors->has('url'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('url') }}</strong>
-                    </span>
-                @endif
-        <button class="btn btn-primary">Add</button>
+            @if ($errors->has('url'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('url') }}</strong>
+                </span>
+            @endif
+        </div>
+        <button class="button" type="submit">Add</button>
     </form>
 
 @endsection

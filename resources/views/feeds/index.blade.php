@@ -11,7 +11,7 @@
         </div>
         @foreach ($feeds as $feed)
             <div class="item">
-                <a href="{{ route('feeds.show', $feed) }}" class="feed-cover @if($feed->icon) with-image @endif " style="background-image: url('{{ $feed->icon }}');">
+                <a href="{{ route('feeds.show', $feed) }}" class="feed-cover @if($feed->icon) with-image @endif " @if($feed->icon)style="background-image: url('{{ $feed->icon }}');"@endif>
                     @if (! $feed->icon)
                         <h2 class="feed-title">{{ $feed->title }}</h2>
                     @endif

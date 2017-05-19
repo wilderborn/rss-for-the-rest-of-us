@@ -34,7 +34,10 @@ class Feed extends Model
     {
         return collect(
             array_get($this->getFeedContents(), 'items', [])
-        )->map(function ($item) {
+        )->filter(function ($item) {
+            // Items without IDs should be discarded as per spec.
+            return array_get($item, 'id');
+        })->map(function ($item) {
             return new FeedItem($item);
         });
     }

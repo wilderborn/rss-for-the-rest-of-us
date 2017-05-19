@@ -14,7 +14,7 @@
                         <div class="panel-heading">
                             <a href="{{ $item->url }}">{{ $item->title }}</a>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" v-pre>
                             {!! $item->content_html !!}
                         </div>
                     </div>

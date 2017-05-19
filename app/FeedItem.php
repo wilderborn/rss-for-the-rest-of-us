@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Purifier;
 use Illuminate\Support\Str;
 
 class FeedItem
@@ -20,9 +21,7 @@ class FeedItem
 
     public function contentHtml()
     {
-        return safe_html(
-            array_get($this->data, 'content_html')
-        );
+        return Purifier::clean(array_get($this->data, 'content_html'));
     }
 
     public function __get($key)

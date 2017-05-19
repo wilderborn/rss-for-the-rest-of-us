@@ -98,16 +98,16 @@ section.main {
     text-align: center;
     padding: 16px;
     color: #fff;
-    background: $black;
+    background-color: $black;
     background-size: cover;
     height: 260px;
     max-width: 100%;
     transition: all .21s ease;
     margin-bottom: 16px;
     position: relative;
-    
-    &:hover { background: $pink; }
-    
+
+    &:hover { background-color: $pink; }
+
     .feed-title {
         width: 100%;
     }

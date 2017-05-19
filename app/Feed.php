@@ -38,6 +38,16 @@ class Feed extends Model
         });
     }
 
+    public function isValid()
+    {
+        return $this->getFeedContents() !== null;
+    }
+
+    public function isInvalid()
+    {
+        return ! $this->isValid();
+    }
+
     public function getFeedContents()
     {
         return \Cache::remember("feeds.{$this->id}", 5, function () {

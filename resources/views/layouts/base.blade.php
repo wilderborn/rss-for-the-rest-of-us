@@ -18,7 +18,7 @@
         @yield('all')
         
         <footer class="site-footer">
-            © Copyright 2017 by the gentlemen at <a href="https://wilderborn.com">Wilderborn.
+            Built by the gentlemen at <a href="https://wilderborn.com">Wilderborn.
         </footer>
     </div>
 

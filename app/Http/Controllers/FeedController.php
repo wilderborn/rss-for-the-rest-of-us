@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Feed;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Exceptions\InvalidFeedException;
 
 class FeedController extends Controller
 {
@@ -35,34 +35,38 @@ class FeedController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function store(Request $request)
     {
-        $userId = $request->user()->id;
-
-        $data = $this->validate($request, [
-            'url' => [
-                'required',
-                'url',
-                Rule::unique('feeds')->where('user_id', $userId)
-            ]
-        ], [
-            'url.unique' => "You've already added this feed."
+        $this->validate($request, [
+            'url' => 'required|url'
         ]);
 
-        $feed = new Feed($data);
-
-        if ($feed->isInvalid()) {
+        try {
+            $feed = $this->createFeed($request->url);
+        } catch (InvalidFeedException $e) {
             return back()
                 ->withInput()
                 ->withErrors(['url' => "This doesn't appear to be a JSON feed."]);
         }
 
-        $feed->user_id = $userId;
-        $feed->save();
+        $request->user()->feeds()->attach($feed);
 
         return redirect()->route('feeds.show', $feed);
+    }
+
+    private function createFeed($url)
+    {
+        if ($feed = Feed::where('url', $url)->first()) {
+            return $feed;
+        }
+
+        return tap(new Feed(['url' => $url]), function ($feed) {
+            throw_if($feed->isInvalid(), InvalidFeedException::class);
+
+            $feed->save();
+        });
     }
 
     /**

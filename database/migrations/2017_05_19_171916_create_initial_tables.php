@@ -21,8 +21,14 @@ class CreateInitialTables extends Migration
 
         Schema::create('feeds', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('url');
+            $table->timestamps();
+        });
+
+        Schema::create('feed_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('feed_id')->unsigned();
             $table->timestamps();
         });
     }

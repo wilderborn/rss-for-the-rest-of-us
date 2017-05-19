@@ -10,9 +10,9 @@ class Feed extends Model
 {
     protected $guarded = [];
 
-    public function user()
+    public function subscribers()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function getTitleAttribute()

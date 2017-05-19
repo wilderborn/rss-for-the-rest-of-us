@@ -17,3 +17,4 @@ Route::get('logout', 'Auth\LoginController@getLogout');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('feeds', 'FeedController');
+Route::get('feeds/{feed}/show', 'FeedItemController@show')->name('feeds.items.show');

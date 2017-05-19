@@ -18,6 +18,7 @@
                 @foreach ($feed->items as $item)
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <a href="{{ route('feeds.items.show', [$feed, 'id' => $item->id]) }}">#</a>
                             <a href="{{ $item->url }}">{{ $item->title }}</a>
                         </div>
                         <div class="panel-body" v-pre>

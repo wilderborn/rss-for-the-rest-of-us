@@ -13,6 +13,12 @@
         color: $pink;
         align-items: center;
         svg { margin-right: 8px; }
+        sup {
+            margin-left: 3px;
+            color: #ccc;
+            font-size: 13px;
+            font-weight: normal;
+        }
     }
     
     ul {
@@ -184,6 +190,11 @@ form.styled {
         display: block;
         margin-top: 16px;
         width: 100%;
+    }
+    
+    label {
+        text-align: left;
+        margin-bottom: 4px;
     }
     
     input {

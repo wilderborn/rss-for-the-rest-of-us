@@ -1,7 +1,7 @@
 <nav class="nav-main">
     <a href="/" class="brand">
         {!! svg('us') !!}
-        <span class="title">RSS</span>
+        <span class="title">RSS<sup>beta</sup></span>
     </a>
 
     <ul class="links">

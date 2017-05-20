@@ -34,10 +34,11 @@
             </div> --}}
 
             <button type="submit" class="button">Login</button>
-
-            {{-- <a class="link" href="{{ route('password.request') }}">
+            
+            <br>
+            <a class="link" href="{{ route('password.request') }}">
                 Forgot Your Password?
-            </a> --}}
+            </a>
         </div>
         </div>
     </form>

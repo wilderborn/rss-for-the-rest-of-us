@@ -43,7 +43,7 @@
             <button type="submit" class="button">Register</button>
 
             <br>
-            <small>By registering you agree it's cool if we send you an email one day and never sell your info. Ever.</small>
+            <small>By registering you agree it's cool if we send you an email one day. We never sell your info, ever. That's dank.</small>
     </div>
 </form>
                 

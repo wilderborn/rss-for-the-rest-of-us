@@ -56,12 +56,15 @@ header.page-header {
 .hero {
     margin-top: 180px;
     max-width: 440px;
+    // min-width: 200px;
     margin: 0 auto;
     height: calc(80vh - 144px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    
+    .content { width: 100%; }
     
     h1 { 
         font-size: 260px;

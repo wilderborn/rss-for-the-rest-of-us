@@ -1,6 +1,11 @@
 @mixin contain() {
     margin-left: 80px;
     margin-right: 80px;
+    
+    @media all and (max-width: 520px) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 @mixin smooth() {

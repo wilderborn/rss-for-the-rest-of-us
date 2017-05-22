@@ -44,6 +44,7 @@
 
             <br>
             <small>By registering you agree it's cool if we send you an email one day. We never sell your info, ever. That's dank.</small>
+        </div>
     </div>
 </form>
                 

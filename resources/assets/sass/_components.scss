@@ -56,9 +56,7 @@ header.page-header {
 .hero {
     margin-top: 180px;
     max-width: 440px;
-    // min-width: 200px;
-    margin: 0 auto;
-    height: calc(80vh - 144px);
+    margin: 5vh auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,6 +81,17 @@ header.page-header {
         font-size: 21px;
         line-height: 1.5;
         text-align: left;
+    }
+}
+
+@media all and (max-width: 520px) {
+    .hero {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        
+        h1 { font-size: 160px; }
+        h2 { font-size: 32px; }
     }
 }
 

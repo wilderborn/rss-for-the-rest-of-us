@@ -224,3 +224,30 @@ form.styled {
 }
 
 .nm { margin: 0 !important; }
+
+
+.new {
+    color: red;
+    font-size: 80px;
+}
+
+.feed-item {
+    border-bottom: 1px solid #ddd;
+    padding: 24px 0;
+    display: flex;
+    align-content: space-between;
+    
+    a {
+        color: $black;
+    }
+    
+    .media {
+        width: 300px;
+        margin-right: 64px;
+        flex-basis: 300px;
+    }
+    
+    .content {
+        flex: 1;
+    }
+}

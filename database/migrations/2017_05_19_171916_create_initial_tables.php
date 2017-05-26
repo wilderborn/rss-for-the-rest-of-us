@@ -13,12 +13,6 @@ class CreateInitialTables extends Migration
      */
     public function up()
     {
-        factory(\App\User::class)->create([
-            'name' => 'test',
-            'email' => 'test@wilderborn.com',
-            'password' => bcrypt('test')
-        ]);
-
         Schema::create('feeds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
